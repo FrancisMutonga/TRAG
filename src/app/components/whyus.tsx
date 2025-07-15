@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <div className="flex justify-center mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">
+              <h3 className="text-xl font-semibold text-blue-700 mb-2">
                 {item.title}
               </h3>
               <p className="text-gray-700">{item.text}</p>

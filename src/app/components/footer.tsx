@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-blue-800 text-white p-6 mt-10  bottom-0 w-full ">
+    <footer className="bg-blue-700 text-white p-6 mt-10  bottom-0 w-full ">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
         <div>
           {/* Logo Section */}

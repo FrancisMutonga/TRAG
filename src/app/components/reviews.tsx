@@ -50,8 +50,8 @@ const Reviews: React.FC = () => {
   ]);
 
   return (
-    <section className=" bg-stone-200 py-8">
-      <div className="container mx-auto p-4 ">
+    <section className=" py-20">
+      <div className="max-w-6xl mx-auto p-4 ">
         <motion.h2
           className="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-700 rounded "
           initial={{ opacity: 0, y: -20 }}
@@ -73,7 +73,7 @@ const Reviews: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="bg-gradient-to-b from-blue-700 to-blue-400 shadow-xl rounded-xl p-[2px] flex flex-col justify-between transition-transform hover:scale-105">
-                  <div className="bg-stone-200 h-full rounded-xl p-6">
+                  <div className="bg-stone-200    rounded-xl p-6">
                     <div className="flex items-center mb-4">
                       <Image
                         src={review.profilePic}
@@ -83,7 +83,7 @@ const Reviews: React.FC = () => {
                         className="rounded-full mr-4 object-cover"
                       />
                       <div>
-                        <h3 className="text-lg text-blue-800 font-bold">
+                        <h3 className="text-lg text-blue-700 font-bold">
                           {review.name}
                         </h3>
                       </div>

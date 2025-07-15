@@ -34,7 +34,7 @@ const MissionVisionValues = () => {
           {items.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-lg p-6 border-l-8 border-blue-800"
+              className="bg-white rounded-2xl shadow-lg p-6 border-l-8 border-blue-700"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}

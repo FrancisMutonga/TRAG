@@ -14,13 +14,14 @@ import MottoSection from "../components/motto";
 function Home() {
   
   return (
-    <div className="flex flex-col items-center gap-8 mt-20  mx-auto">
+    <div className="flex flex-col items-center max-w-6xl gap-8 mt-20  mx-auto">
      <Hero/>
      <MottoSection/>
      <SchoolStats/>
      <ProgramsSection/>
-     <Reviews/>
+   
      <CTASection/>
+     <Reviews/>
      <LocationSection/>
         
     </div>
