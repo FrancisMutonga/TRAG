@@ -16,7 +16,7 @@ const LocationSection: React.FC = () => {
         >
           Visit Us
         </motion.h2>
-        <p className="mb-6 text-gray-700">we'd Love to Meet You</p>
+        <p className="mb-6 text-gray-700">We&apos;d Love to Meet You</p>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

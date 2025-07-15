@@ -84,7 +84,7 @@ export default function SigninPage() {
           Sign In
         </h1>
         <div className="flex gap-4 items-center text-stone-700">
-          <p>Don’t have an account?</p>
+          <p>Don&apos;t have an account?</p>
           <Link
             href="/signup"
             className="text-med font-semibold text-pink-500 hover:underline"
@@ -108,7 +108,7 @@ export default function SigninPage() {
               placeholder="Password"
               className="w-full p-2 border rounded text-stone-700"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePasswordChange}
               required
             />
             <span

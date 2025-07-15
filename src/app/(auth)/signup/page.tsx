@@ -16,7 +16,7 @@ export default function SignupPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [role, setRole] = useState("learner");
   const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
   const router = useRouter();
 
   const handleSignup = async (e: FormEvent<HTMLFormElement>) => {
@@ -48,7 +48,6 @@ export default function SignupPage() {
       else if (role === "teacher") router.push("/teacher/dashboard");
       else if (role === "accounts") router.push("/accounts/dashboard");
       else router.push("/learner/dashboard");
-
     } catch (err: any) {
       setError(err.message || "Something went wrong.");
     }

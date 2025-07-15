@@ -9,7 +9,6 @@ type UserType = {
   username: string;
   email: string;
   role: string;
-  createdAt?: any;
 };
 
 export default function ManageUsers() {
@@ -103,8 +102,12 @@ export default function ManageUsers() {
 
                 {/* Optional actions */}
                 <div className="mt-3 flex gap-2">
-                  <button className="text-blue-500 text-xs hover:underline">Edit</button>
-                  <button className="text-red-500 text-xs hover:underline">Delete</button>
+                  <button className="text-blue-500 text-xs hover:underline">
+                    Edit
+                  </button>
+                  <button className="text-red-500 text-xs hover:underline">
+                    Delete
+                  </button>
                 </div>
               </div>
             ))
