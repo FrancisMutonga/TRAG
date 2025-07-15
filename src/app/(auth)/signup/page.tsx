@@ -48,8 +48,12 @@ export default function SignupPage() {
       else if (role === "teacher") router.push("/teacher/dashboard");
       else if (role === "accounts") router.push("/accounts/dashboard");
       else router.push("/learner/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Something went wrong.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong.");
+      }
     }
   };
 
