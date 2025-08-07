@@ -54,7 +54,7 @@ const Sidebar = () => {
             </button>
             <nav className="flex flex-col gap-4">
               <SidebarItem icon={<FaHome />} label="Home" link="/admin/dashboard" isOpen />
-              <SidebarItem icon={<FaUser />} label="Profile" link="/profile" isOpen />
+              <SidebarItem icon={<FaUser />} label="Profile" link="/admin/profile" isOpen />
               <SidebarItem icon={<FaCog />} label="Settings" link="/settings" isOpen />
               <SidebarItem icon={<FaSignOutAlt />} label="Logout" link="/" isOpen />
             </nav>
@@ -83,7 +83,7 @@ const Sidebar = () => {
 
         <nav className="flex flex-col gap-6 mt-4">
           <SidebarItem icon={<FaHome />} label="Home" link="/admin/dashboard" isOpen={isOpen} />
-          <SidebarItem icon={<FaUser />} label="Profile" link="/profile" isOpen={isOpen} />
+          <SidebarItem icon={<FaUser />} label="Profile" link="/admin/profile" isOpen={isOpen} />
           <SidebarItem icon={<FaCog />} label="Settings" link="/settings" isOpen={isOpen} />
           <SidebarItem icon={<FaSignOutAlt />} label="Logout" link="/" isOpen={isOpen} />
         </nav>
