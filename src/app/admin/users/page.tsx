@@ -5,6 +5,7 @@ import { db, storage } from "../../firebase/client";
 import { collection, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref } from "firebase/storage";
 import Link from "next/link";
+import Image from "next/image";
 
 type UserType = {
   id: string;
@@ -28,11 +29,10 @@ export default function ManageUsers() {
         querySnapshot.docs.map(async (doc) => {
           const userData = { id: doc.id, ...doc.data() } as UserType;
 
-          // Try to get the profile picture from Firebase Storage
           try {
             const url = await getDownloadURL(ref(storage, `profilepics/${userData.id}`));
             userData.photoURL = url;
-          } catch (err) {
+          } catch {
             userData.photoURL = null; // fallback to initials
           }
 
@@ -58,7 +58,6 @@ export default function ManageUsers() {
 
   return (
     <div className="p-6 mt-10">
-      {/* Header */}
       <div className="flex flex-row gap-10 items-center mb-4">
         <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-amber-600">
           Manage Users
@@ -71,7 +70,6 @@ export default function ManageUsers() {
         </Link>
       </div>
 
-      {/* Filters */}
       <div className="flex gap-4 mb-6">
         <input
           type="text"
@@ -94,18 +92,18 @@ export default function ManageUsers() {
         </select>
       </div>
 
-      {/* Sleek Card UI */}
       <div className="p-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
               <Link href={`/users/${user.id}`} key={user.id}>
                 <div className="cursor-pointer min-w-[160px] flex flex-col items-center bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition">
-                  {/* Profile Image or Initials */}
                   {user.photoURL ? (
-                    <img
+                    <Image
                       src={user.photoURL}
                       alt="Profile"
+                      width={20}
+                      height={20}
                       className="w-20 h-20 rounded-full object-cover shadow-md"
                     />
                   ) : (
@@ -118,12 +116,10 @@ export default function ManageUsers() {
                     </div>
                   )}
 
-                  {/* Username */}
                   <div className="mt-3 text-xl font-semibold text-amber-600 text-center">
                     {user.username}
                   </div>
 
-                  {/* Role */}
                   <div className="text-sm text-gray-800 capitalize">
                     {user.role}
                   </div>

@@ -5,9 +5,20 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase/client";
 import { User } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+
+
+type UserProfile = {
+  firstName: string;
+  lastName: string;
+  phoneNumber?: string;
+  gender?: string;
+  role?: string;
+  photoURL?: string;
+};
 
 export default function AdminProfilePage() {
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,7 +30,7 @@ export default function AdminProfilePage() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setProfile(docSnap.data());
+        setProfile(docSnap.data() as UserProfile); 
       }
 
       setLoading(false);
@@ -41,9 +52,11 @@ export default function AdminProfilePage() {
       <div className="flex flex-col items-center">
         <div className="w-28 h-28 rounded-full border-2 border-gray-300 overflow-hidden flex items-center justify-center bg-gray-100">
           {profile.photoURL ? (
-            <img
+            <Image
               src={profile.photoURL}
               alt="Profile"
+              width={12}
+              height={12}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -65,15 +78,18 @@ export default function AdminProfilePage() {
           {profile.gender || "N/A"}
         </div>
         <div>
-          <span className="font-semibold">Role:</span> {profile.role || "admin"}
+          <span className="font-semibold">Role:</span>{" "}
+          {profile.role || "admin"}
         </div>
       </div>
 
       <div className="text-right">
         <Link
           href="/admin/profile/edit"
-          className="text-gray-800 px-4 py-2 rounded  shadow-md transition font-medium"
-        >Edit</Link>
+          className="text-gray-800 px-4 py-2 rounded shadow-md transition font-medium"
+        >
+          Edit
+        </Link>
       </div>
     </div>
   );
